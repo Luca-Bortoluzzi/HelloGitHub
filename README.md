@@ -1,3 +1,3 @@
 # -HelloGitHub
 
-Ciao questo è il repository di <Luca Bortoluzzi>;
+Ciao questo è il repository di Luca Bortoluzzi
