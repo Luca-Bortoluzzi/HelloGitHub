@@ -1,0 +1,42 @@
+#define BIT0 2
+#define BIT1 3
+#define BIT2 4
+#define BIT3 5
+#define buttonup 12
+#define buttondown 13
+int num =0;
+
+void setup ()
+{
+   Serial.begin (9600);
+   pinMode (buttonup, INPUT);
+   pinMode (buttondown, INPUT);
+   
+  for(int i = 0 ; i <= 3 ; i++)
+ 
+    pinMode (BIT0+i, OUTPUT);
+}
+
+void loop ()
+{
+
+  int state_increase = digitalRead (buttonup);
+  int state_decrease = digitalRead (buttondown);
+
+if(state_decrease == 1 && num>0) num--;
+  
+  if(state_increase == 1 && num<15) num++;
+  
+  delay(200);
+ 
+  Serial.println(num);
+
+    
+  for(int i = 0 ; i <= 3 ; i++){ 
+    
+    digitalWrite(BIT0+i,((num>>i) & 0x01));
+  }
+}
+  
+
+
